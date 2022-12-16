@@ -42,10 +42,8 @@ RUN python3.10 --version
 RUN mkdir -p /opt/torscraper/
 WORKDIR /opt/torscraper
 
-RUN \
-  echo 'alias python="/usr/bin/python3"' >> /root/.bashrc && \
-  echo 'alias pip="/usr/bin/pip3"' >> /root/.bashrc && \
-  source /root/.bashrc
+RUN ln -s /usr/bin/python3 /usr/bin/python & \
+  ln -s /usr/bin/pip3 /usr/bin/pip
 
 # install requirements
 COPY requirements.txt /opt/torscraper
