@@ -44,6 +44,7 @@ WORKDIR /opt/torscraper
 
 # install requirements
 COPY requirements.txt /opt/torscraper
+RUN pip3 install gensim --no-cache-dir --no-binary gensim
 RUN pip3 install --no-cache-dir -r requirements.txt
 RUN pip3 install --upgrade requests
 
