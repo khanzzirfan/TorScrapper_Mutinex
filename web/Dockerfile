@@ -4,9 +4,14 @@ MAINTAINER Olivier Bilodeau <obilodeau@gosecure.ca>
 # RUN apt-get update && \
 #     apt-get add python python-dev libffi-dev gcc make musl-dev py-pip mysql-client openssl-dev
 
-RUN apt-get update && apt-get install -y python3.10 python3-distutils python3-pip python3-apt gcc make musl-dev mysql-client openssl-dev
+RUN apt-get update && apt-get install -y python3.10 python3-distutils python3-pip python3-apt 
 
 RUN apt-get update && apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+
+RUN app-get update && \
+    app-get add gcc make musl-dev mysql-client openssl-dev
 
 RUN apt-get update \
     && apt-get --yes --no-install-recommends install \

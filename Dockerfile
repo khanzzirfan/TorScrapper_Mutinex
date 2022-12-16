@@ -7,6 +7,7 @@ MAINTAINER Olivier Bilodeau <obilodeau@gosecure.ca>
 RUN apt-get update && apt-get install -y software-properties-common gcc && \
   add-apt-repository -y ppa:deadsnakes/ppa
 
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 # os setup
 RUN apt-get update && apt-get -y install \
   python-lxml \
