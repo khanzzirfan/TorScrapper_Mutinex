@@ -44,7 +44,6 @@ WORKDIR /opt/torscraper
 
 # install requirements
 COPY requirements.txt /opt/torscraper
-RUN pip install txsocksx
 RUN pip3 install --no-cache-dir -r requirements.txt
 RUN pip3 install --upgrade requests
 
