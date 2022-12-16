@@ -28,4 +28,5 @@ PyPyDispatcher
 urllib3
 cachelib
 gensim
-txsocksx
+# txsocksx
+PySocks
