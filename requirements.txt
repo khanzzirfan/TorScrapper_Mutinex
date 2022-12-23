@@ -7,7 +7,6 @@ elasticsearch
 elasticsearch-dsl
 python-dateutil
 Twisted
-txsocksx
 numpy
 scipy
 scikit-learn
@@ -23,9 +22,11 @@ timeout_decorator
 pretty
 crypto
 SHA256
-gensim
 sklearn
 paramiko
 PyPyDispatcher
 urllib3
 cachelib
+gensim
+# txsocksx
+PySocks

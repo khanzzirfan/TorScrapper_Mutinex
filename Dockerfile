@@ -1,9 +1,13 @@
-FROM python:2.7
+FROM ubuntu:18.04
 MAINTAINER Olivier Bilodeau <obilodeau@gosecure.ca>
 # Modified from a Dockerfile by Madison Bahmer <madison.bahmer@istresearch.com>
 # Under the MIT license
 # https://github.com/istresearch/scrapy-cluster/blob/master/docker/crawler/Dockerfile
 
+RUN apt-get update && apt-get install -y software-properties-common gcc && \
+  add-apt-repository -y ppa:deadsnakes/ppa
+
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
 # os setup
 RUN apt-get update && apt-get -y install \
   python-lxml \
@@ -15,13 +19,34 @@ RUN apt-get update && apt-get -y install \
   libxslt1-dev \
   haproxy \
   && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y python3.10 python3-distutils python3-pip python3-apt
+
+RUN apt-get update \
+  && apt-get --yes --no-install-recommends install \
+  build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+
+RUN apt-get update \
+  && apt-get --yes --no-install-recommends install \
+  python3 python3-dev \
+  python3-pip python3-venv python3-wheel python3-setuptools \
+  build-essential cmake \
+  graphviz git openssh-client \
+  libssl-dev libffi-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+## Check Python version
+RUN python3.10 --version
+
+
 RUN mkdir -p /opt/torscraper/
 WORKDIR /opt/torscraper
 
 # install requirements
 COPY requirements.txt /opt/torscraper
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --upgrade requests
+RUN pip3 install gensim --no-cache-dir --no-binary gensim
+RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --upgrade requests
 
 # move codebase over
 COPY . /opt/torscraper
