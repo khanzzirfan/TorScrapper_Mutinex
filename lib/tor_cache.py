@@ -9,7 +9,7 @@ from flask import current_app as app
 import inspect
 import sys
 import cachelib
-from cachelib.memcached import MemcachedCache
+from cachelib.memcached  import MemcachedCache
 import os
 import functools 
 import logging

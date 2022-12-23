@@ -15,3 +15,4 @@ while('"' in secret.encode("string-escape") or '`' in secret.encode("string-esca
     secret=os.urandom(32)
 file.write('FLASK_SECRET="%s"\n' % secret.encode("string-escape"))
 print("Written flask secret to '%s'" % PATH)
+
