@@ -1,0 +1,8 @@
+{
+  "db_host": "mutinexdev.cxygm6tkxcot.ap-southeast-2.rds.amazonaws.com",
+  "db_port": 5432,
+  "db_user" : "postgres",
+  "db_pass" : "Master0987#",
+  "scrape_table" : "onion_scrape",
+  "db_name": "postgres"
+}

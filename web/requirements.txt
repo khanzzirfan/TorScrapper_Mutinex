@@ -1,9 +1,9 @@
 # TODO: slim down the requirements
-pony
-PyMySQL
+pony==0.7.1
+PyMySQL==0.10.1
 py-pretty
-elasticsearch
-elasticsearch-dsl
+elasticsearch>=5.0.0,<6.0.0
+elasticsearch-dsl>=5.0.0,<6.0.0
 python-dateutil
 # removed to see if web interface works w/o this
 #numpy
@@ -26,6 +26,6 @@ python-memcached
 flask
 timeout_decorator
 pretty
-PyPyDispatcher
+PyPyDispatcher>=2.1.0
 urllib3
 cachelib

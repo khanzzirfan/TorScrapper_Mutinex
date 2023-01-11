@@ -15,3 +15,4 @@ file = open(PATH, "w")
 #    secret=os.urandom(32)
 file.write('FLASK_SECRET="%s"\n' % secret)
 print("Written flask secret to '%s'" % PATH)
+
